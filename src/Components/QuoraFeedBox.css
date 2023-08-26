@@ -1,0 +1,21 @@
+.Profile-FeedBox{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+.profile-info img{
+    width: 50px;
+    border-radius: 50%;
+}
+.profile-info{
+    display: flex;
+    gap: 1rem;
+}
+.Answer-feedbox{
+    height: 7rem;
+    overflow-y:scroll;
+}
