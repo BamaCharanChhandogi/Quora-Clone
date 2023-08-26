@@ -1,0 +1,8 @@
+body{
+    background-color: #F1F2F2;
+}
+.quora-content{
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}

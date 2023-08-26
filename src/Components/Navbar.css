@@ -1,0 +1,79 @@
+.navbar .logo img{
+    width: 100%;
+}
+.navbar .logo{
+    width: 7rem;
+    margin-left: 2rem;
+}
+.navbar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4em;
+    height: 10vh;
+    /* border: 2px solid red; */
+    background-color: #FFFFFF;
+    top: 0;
+    position: sticky;
+    z-index: 1000;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.5);
+}
+.navbar .menu{
+    display: flex;
+}
+.menu .nav-icon{
+    margin: 20px;
+    outline-color: red;
+    cursor: pointer;
+}
+.nav-icon >.MuiSvgIcon-root:hover{
+    color: #c92e29;
+}
+.nav-search{
+    width: 23%;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 5px;
+    padding: 2px;
+    height: 55%;
+}
+
+.nav-search input{
+    width: 100%;
+    padding: 0.4rem;
+    border: none;
+    margin-left: 10px;
+}
+.nav-search> .MuiSvgIcon-root{
+    margin-left: 5px;
+    color: gray;
+}
+.nav-search input:focus{
+    outline: none;
+}
+.nav-remaining{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.nav-remaining .profile-avatar{
+    /* width: 34px; */
+    /* height: 34px; */
+    cursor: pointer;
+}
+.nav-remaining button{
+    color: white;
+    font-weight: bold;
+    /* font-size: 1rem; */
+}
+.nav-remaining .nav-button{
+    border-radius: 4px;
+    background-color: #c92e29;
+}
+
+.nav-language>.MuiSvgIcon-root:hover{
+    color: #c92e29;
+    cursor: pointer;
+}
