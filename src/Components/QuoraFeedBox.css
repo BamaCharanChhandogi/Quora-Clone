@@ -19,3 +19,51 @@
     height: 7rem;
     overflow-y:scroll;
 }
+.Feed-footer{
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.4rem;
+}
+.vote{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+    padding: 5px 15px ;
+    gap: 0.7rem;
+    border-radius: 20px;
+    background-color: rgb(241, 241, 241);
+}
+.vote .MuiSvgIcon-root:hover{
+    color: #c92e29;
+}
+.vote .Upvote{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+.vote .Upvote h5{
+    font-size: 0.8rem;
+}
+.vote .Downvote{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.Feed-footer .Message{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.Share .MuiSvgIcon-root:hover{
+    color: #c92e29;
+}
+.Feed-footer .Share{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.Message .MuiSvgIcon-root:hover{
+    color: #c92e29;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Home,Notifications,Groups,QuestionAnswer, Search, Language} from '@mui/icons-material';
+import {Home,Notifications,Groups,QuestionAnswer, Search, Language, HomeOutlined, QuestionAnswerOutlined, Groups2Outlined, GroupsOutlined, NotificationsOutlined} from '@mui/icons-material';
 import './Navbar.css'
 import { Avatar, Button } from '@mui/material';
 
@@ -14,17 +14,17 @@ function navbar() {
             <img src='https://download.logo.wine/logo/Quora/Quora-Logo.wine.png' alt='logo'/>
         </div>
         <div className='menu'>
-            <div className='nav-icon'>
-            <Home sx={{fontSize:34}}/>
+            <div className='nav-icon Home'>
+            <HomeOutlined/>
             </div>
             <div className='nav-icon'>
-            <QuestionAnswer sx={{fontSize:34}}/>
+            <QuestionAnswerOutlined/>
             </div>
             <div className='nav-icon'>
-                <Groups sx={{fontSize:34}}/>
+                <GroupsOutlined/>
             </div>
             <div className='nav-icon'>
-                <Notifications sx={{fontSize:34}}/>
+                <NotificationsOutlined/>
             </div>
         </div>
         <div className='nav-search'>

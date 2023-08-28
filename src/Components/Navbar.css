@@ -26,6 +26,12 @@
     outline-color: red;
     cursor: pointer;
 }
+.Home >.MuiSvgIcon-root{
+    color: #c92e29;
+}
+.nav-icon >.MuiSvgIcon-root{
+    font-size: 34px;
+}
 .nav-icon >.MuiSvgIcon-root:hover{
     color: #c92e29;
 }
