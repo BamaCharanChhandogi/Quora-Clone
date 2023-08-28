@@ -6,6 +6,7 @@
     background-color: white;
     padding: 10px;
     border-radius: 5px;
+    gap: 0.8rem;
 }
 .profile-info img{
     width: 50px;
@@ -15,9 +16,15 @@
     display: flex;
     gap: 1rem;
 }
+.Question-feedbox h3{
+    text-align: justify;
+}
 .Answer-feedbox{
     height: 7rem;
     overflow-y:scroll;
+}
+.Answer-feedbox p{
+    text-align: justify;
 }
 .Feed-footer{
     display: flex;
