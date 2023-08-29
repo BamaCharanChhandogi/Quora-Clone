@@ -11,7 +11,7 @@ function App() {
   useEffect(()=>{
     auth.onAuthStateChanged((authUser)=>{
       if(authUser){
-        dispatch(login(authUser));
+        dispatch(login({}));
       }
       else{
         dispatch(logout());
