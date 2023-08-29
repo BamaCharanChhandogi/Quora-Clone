@@ -23,7 +23,6 @@ function App() {
       {
         user ? <Quora/> : <Login/>
       }
-      {/* <Quora /> */}
     </div>
   );
 }

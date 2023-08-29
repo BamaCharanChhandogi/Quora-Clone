@@ -17,9 +17,10 @@ function Login() {
   };
 
   const signIn = () => {
-    auth.signInWithPopup(provider).catch((err) => {
-      alert(err.message);
+   auth.signInWithPopup(provider).catch((err) => {
+      alert(err);
     });
+    console.log(auth);
   };
 
   const signUp = (e) => {
@@ -65,7 +66,7 @@ function Login() {
           </div>
           <button onClick={signUp}>Sign Up</button>
           <button type='submit' onClick={login}>Login</button>
-          <button onClick={signIn}>Google</button>
+          <button type='button' onClick={signIn}>Google</button>
         </form>
       </div>
     </div>

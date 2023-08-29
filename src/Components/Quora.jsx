@@ -1,8 +1,8 @@
 import React from 'react'
 import './Quora.css'
-import Navbar from './navbar';
 import Sidebar from './Sidebar';
 import Feed from './Feed';
+import Navbar from './Navbar';
 function Quora() {
   return (
     <div>
