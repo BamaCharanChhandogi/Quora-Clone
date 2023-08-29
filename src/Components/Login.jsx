@@ -1,35 +1,75 @@
-import React, { useState } from 'react'
-import './Login.css'
-import {auth,provider} from '../firebase'
+import React, { useState } from 'react';
+import './Login.css';
+import { auth, provider } from '../firebase'; // Make sure to import "auth" from the correct path
+
 function Login() {
-const login =() => {
-  auth.signInWithEmailAndPassword(email, password);
-  then((auth)=>{
-    console.log(auth);
-  }).catch((err) => {alert(err);});
-}
-  const [email, setEmail] = useState('')
+  const login = (e) => {
+    e.preventDefault();
+    auth.signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        console.log(auth);
+        setEmail("");
+        setPassword("");
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
+
+  const signIn = () => {
+    auth.signInWithPopup(provider).catch((err) => {
+      alert(err.message);
+    });
+  };
+
+  const signUp = (e) => {
+    e.preventDefault();
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        if (auth) {
+          console.log(auth);
+          setEmail("");
+          setPassword("");
+        }
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
+
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   return (
-    /* The code you provided is a React component called "Login". It is a form that allows users to
-    enter their username and password to log in. */
-    /* The code you provided is a JSX code snippet that represents a React component called "Login". It
-    is a form that allows users to enter their username and password to log in. */
     <div className='Login'>
-      <div class="login-box">
-      <h2>Login</h2>
-      <form action="" onsubmit="return validation()">
-        <div class="user-box">
-          <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} name="" placeholder="username" id="username" />
-        </div>
-        <div class="user-box">
-          <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}name="" placeholder="password" id="password" />
-        </div>
-        <button type='submit' onClick={login}>Login</button>
-      </form>
+      <div className="login-box">
+        <h2>Login</h2>
+        <form>
+          <div className="user-box">
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              id="username"
+            />
+          </div>
+          <div className="user-box">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="password"
+              id="password"
+            />
+          </div>
+          <button onClick={signUp}>Sign Up</button>
+          <button type='submit' onClick={login}>Login</button>
+          <button onClick={signIn}>Google</button>
+        </form>
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

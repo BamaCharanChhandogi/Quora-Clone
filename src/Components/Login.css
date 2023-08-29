@@ -25,14 +25,9 @@
     width: 400px;
     height: 420px;
     padding: 20px;
-    border-radius: 20px;
+    border: 1px solid red;
+    border-radius: 10px;
     margin-top: 100px;
-    background: #108dc7; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to right,
-      #ef8e38,
-      #108dc7
-    ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
       to right,
       #ef8e38,
@@ -83,55 +78,19 @@
     padding: 10px 20px;
     color: #03e9f4;
     font-size: 16px;
-    text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     transition: 0.5s;
     letter-spacing: 2px;
   }
-  .login-box a:hover {
-    background: #f7ff00; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to right,
-      #db36a4,
-      #f7ff00
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to right,
-      #db36a4,
-      #f7ff00
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: #fff;
-    border-radius: 5px;
-    /* box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 100px #03e9f4; */
-    box-shadow: 0 0 5px #db36a4, 0 0 25px #db36a4, 0 0 50px #f7ff00,
-      0 0 100px #f7ff00;
-  }
-  /* span design */
-  .login-box a span {
-    position: absolute;
-    display: block;
-  }
-  /* child 1 */
-  .login-box a span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    height: 3px;
-    width: 100%;
-    background: linear-gradient(90deg, transparent, #db36a4);
-    animation: btn-anim1 1s linear infinite;
-  }
-  @keyframes btn-anim1 {
-    0% {
-      left: -100%;
-    }
-    50%,
-    100% {
-      left: 100%;
-    }
+  .login-box button{
+    width: 90px;
+    padding: 6px;
+    /* height: 60px; */
+    margin-left: 10px;
+    background-color: #fc5c7d;
+    border:  none;
+    cursor: pointer;
   }
   /* child 2 */
   .login-box a span:nth-child(2) {
@@ -151,16 +110,6 @@
     100% {
       top: 100%;
     }
-  }
-  /* child 3 */
-  .login-box a span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    height: 3px;
-    width: 100%;
-    background: linear-gradient(270deg, transparent, #db36a4);
-    animation: btn-anim3 1s linear infinite;
-    animation-delay: 0.5s;
   }
   @keyframes btn-anim3 {
     0% {
