@@ -1,10 +1,11 @@
 import React from 'react'
 import './QuoraDefaultBox.css';
 import { Avatar } from '@mui/material';
+import { auth } from '../firebase';
 function QuoraDefaultBox() {
   return (
     <div className='Quora-Box'>
-         <img src="https://pbs.twimg.com/profile_images/1677776392359141386/EmXpF_gl_400x400.jpg" alt="" />
+         <img src={auth.currentUser.photoURL} alt="" />
       <div className='QuoraBox-Info'>
         <input type="text" placeholder='What do you want share or ask?' />
         <div className='QuoraBox-function'>

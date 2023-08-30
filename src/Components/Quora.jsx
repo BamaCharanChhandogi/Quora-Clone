@@ -5,7 +5,7 @@ import Feed from './Feed';
 import Navbar from './Navbar';
 function Quora() {
   return (
-    <div>
+    <div className='Quora'>
       <Navbar/>
       <div className="quora-content">
       <Sidebar/>

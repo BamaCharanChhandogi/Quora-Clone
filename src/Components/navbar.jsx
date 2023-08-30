@@ -6,25 +6,33 @@ import { logout, selectUser } from '../features/counter/userSlice';
 import db, { auth } from '../firebase';
 import { useSelector } from 'react-redux';
 import Modal from 'react-modal';
+import firebase from 'firebase/compat/app';
+
 const styleForAvatar = {
     'width':'32px',
     'height':'32px'
   };
 function Navbar() {
-    const user = useSelector(selectUser);
+  const user=useSelector(selectUser);
     const [openModal, setOpenModal] = useState(false);
     const [InputValue, setInputValue] = useState('');
     const [inputUrl, setInputUrl] = useState('');
 
     const handleQuestion = (e) => {
+      if(InputValue!=''){
         e.preventDefault();
         setOpenModal(false);
         db.collection('question').add({
             question: InputValue,
-            url: inputUrl
+            url: inputUrl,
+            timeStamp:firebase.firestore.FieldValue.serverTimestamp()
         })
         setInputValue('');
         setInputUrl('');
+      }
+      else{
+        alert('Please enter a question');
+      }
 
     };
   return (
@@ -52,7 +60,7 @@ function Navbar() {
         </div>
         <div className='nav-remaining'>
             <div className='profile-avatar'>
-                <Avatar style={styleForAvatar} src=""/>
+                <Avatar style={styleForAvatar} src={auth.currentUser.photoURL}/>
             </div>
             <div className='nav-language'>
             <Language sx={{fontSize:32}}/>
@@ -92,15 +100,11 @@ function Navbar() {
           <div className="modal__info">
             <Avatar
               className="avatar"
-            //   src={
-            //     user.photo
-            //       ? user.photo
-            //       : "https://images-platform.99static.com//_QXV_u2KU7-ihGjWZVHQb5d-yVM=/238x1326:821x1909/fit-in/500x500/99designs-contests-attachments/119/119362/attachment_119362573"
-            //   }
+              src={auth.currentUser.photoURL}
             />
             {/* <p>{user.disPlayName ? user.disPlayName : user.email} asked</p> */}
             <div className="modal__scope">
-              <p>username</p>
+              <p>{auth.currentUser.displayName}</p>
             </div>
           </div>
           <div className="modal__Field">
@@ -111,14 +115,14 @@ function Navbar() {
               type="text"
               placeholder="Start your question with 'What', 'How', 'Why', etc. "
             />
-            {/* <div className="modal__fieldLink">
+            <div className="modal__fieldLink">
               <input
                 value={inputUrl}
                 onChange={(e) => setInputUrl(e.target.value)}
                 type="text"
-                placeholder="Optional: inclue a link that gives context"
+                placeholder="Enter image link.."
               ></input>
-            </div> */}
+            </div>
           </div>
           <div className="modal__buttons">
             <button className="cancel" onClick={() => setOpenModal(false)}>
