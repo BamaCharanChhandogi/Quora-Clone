@@ -2,11 +2,11 @@ import React from 'react'
 import './Quora.css'
 import Sidebar from './Sidebar';
 import Feed from './Feed';
-import Navbar from './Navbar';
+import Navigtationbar from './Navigtationbar';
 function Quora() {
   return (
-    <div className='Quora'>
-      <Navbar/>
+    <div className='Quora' id='quora'>
+      <Navigtationbar/>
       <div className="quora-content">
       <Sidebar/>
       <Feed/>

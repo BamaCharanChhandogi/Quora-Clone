@@ -12,18 +12,22 @@ const styleForAvatar = {
     'width':'32px',
     'height':'32px'
   };
-function Navbar() {
-  const user=useSelector(selectUser);
+
+function Navigtationbar() {
+    const user=useSelector(selectUser);
     const [openModal, setOpenModal] = useState(false);
     const [InputValue, setInputValue] = useState('');
     const [inputUrl, setInputUrl] = useState('');
 
+
     const handleQuestion = (e) => {
       if(InputValue!=''){
         e.preventDefault();
+        document.getElementById('quora').style.filter='blur(0px)';
         setOpenModal(false);
         db.collection('question').add({
             question: InputValue,
+            answer:"",
             PostImg: inputUrl,
             timeStamp:firebase.firestore.FieldValue.serverTimestamp(),
             userId: user.uid,
@@ -69,7 +73,10 @@ function Navbar() {
             <Language sx={{fontSize:32}}/>
             </div>
             <div className='nav-button'>
-            <Button onClick={()=>{setOpenModal(true)}}>Add a question</Button>
+            <Button onClick={()=>{
+              document.getElementById('quora').style.filter='blur(8px)';
+              setOpenModal(true)
+              }}>Add a question</Button>
             </div>
             <div onClick={()=>{auth.signOut()}} className='logout-btn'>
             <Button>Log Out</Button>
@@ -128,7 +135,10 @@ function Navbar() {
             </div>
           </div>
           <div className="modal__buttons">
-            <button className="cancel" onClick={() => setOpenModal(false)}>
+            <button className="cancel" onClick={()=>{
+              setOpenModal(false);
+              document.getElementById('quora').style.filter='blur(0px)';
+            }}>
               Cancel
             </button>
             <button type="sumbit" onClick={handleQuestion} className="add">
@@ -140,4 +150,4 @@ function Navbar() {
   )
 }
 
-export default Navbar;
+export default Navigtationbar

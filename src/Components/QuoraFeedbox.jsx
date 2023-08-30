@@ -1,10 +1,28 @@
 import { Avatar } from '@mui/material';
-import React from 'react'
+import React,{useState} from 'react'
 import './QuoraFeedBox.css'
 import Feed from './Feed';
 
 import { Chat, ChatOutlined, Message, ShareOutlined, ThumbDown, ThumbDownOutlined, ThumbUp, ThumbUpOutlined } from '@mui/icons-material';
+import ReactModal from 'react-modal';
 function QuoraFeedbox(props) {
+  const [open, setOpen] = useState(false);
+  
+  const answerBtn=()=>{
+    document.getElementById('quora').style.filter='blur(8px)';
+    setOpen(true);
+  }
+  // cancel
+  const modalCancel=()=>{
+    document.getElementById('quora').style.filter='blur(0px)';
+    setOpen(false);
+  }
+  const modalSave=()=>{
+    const ans=
+    document.getElementById('quora').style.filter='blur(0px)';
+    setOpen(false);
+
+  }
   return (
     <div className='Profile-FeedBox'>
       <div className='profile-info'>
@@ -15,15 +33,15 @@ function QuoraFeedbox(props) {
       </div>
       <div className='Question-feedbox'>
         <h3>{props.question}</h3>
-        <button>Answer</button>
+        <button onClick={answerBtn}>Answer</button>
       </div>
       <div className='Answer-feedbox'>
         <div className="image">
         <img src={props.PostImg} alt="" />
         </div>
-        {/* <div className='ans'>
-        <p> Is the 94.1 LPA salary in Bangalore too low for a 32-year-old software engineer?With a 94.1 LPA you can just breathe in Bangalore. You need minimum of 94.1 Cr per annum to live an average life in Bangalore. May be over 100 Cr. I am sorry but for buying an underwear in Bangalore costs around 50 lacs and you can merely buy just 2 annually within your package that too if you compromise in everything and take loan from your friends. How are you still managing? 🥺Some small questions for you. Which company is paying you a monthly salary of over 7 Lacs per month and it would be great if you can share your point of views .</p>
-        </div> */}
+        <div className='ans'>
+        <p>{props.ans}</p>
+        </div>
       </div>
       <div className='Feed-footer'>
         <div className='vote'>
@@ -42,7 +60,37 @@ function QuoraFeedbox(props) {
         <div className='Share'>
           <ShareOutlined/>
         </div>
-
+        <ReactModal
+        isOpen={open}
+        onRequestClose={()=>{setOpen(false)}}
+        shouldCloseOnOverlayClick={false}
+        style={{
+          overlay: {
+            width: '60%',
+            height: '60%',
+            backgroundColor: "#c92c92",
+            zIndex: "1000",
+            top: "20%",
+            left: "24%",
+          },
+          content: {
+              WebkitOverflowScrolling: 'touch',
+              overflow: 'auto',
+              outline: "none",
+              margin: "-20px"
+          }
+        }}
+        >
+          <div className='modal-ans'>
+            <h3>Write your answer</h3>
+            <input type="text" placeholder='start your writing'/>
+            <input type="link" placeholder='Enter image link' />
+          </div>
+          <div className='modal-btn'>
+            <button onClick={modalCancel}>Cancel</button>
+            <button onClick={modalSave}>Save</button>
+          </div>
+        </ReactModal>
       </div>
     </div>
   )

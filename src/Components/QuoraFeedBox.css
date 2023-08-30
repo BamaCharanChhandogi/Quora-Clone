@@ -106,3 +106,33 @@
 .Message .MuiSvgIcon-root:hover{
     color: #c92e29;
 }
+/* Modal */
+.modal-ans{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+.modal-ans input{
+    width: 19rem;
+    padding: 10px;
+    outline: none;
+}
+.modal-btn{
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+}
+.modal-btn button{
+    width: 90px;
+    padding: 7px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    background-color: #e23a34;
+    border: none;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
