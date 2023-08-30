@@ -3,8 +3,11 @@ import './Feed.css'
 import QuoraDefaultBox from './QuoraDefaultBox';
 import QuoraFeedbox from './QuoraFeedbox';
 import db, { auth } from '../firebase';
+import { selectUser } from '../features/counter/userSlice';
+import { useSelector } from 'react-redux';
 function Feed() {
   const [feed, setFeed] = useState([]);
+  const user=useSelector(selectUser);
 
   useEffect(() => {
     const unsubscribe = db.collection('question').onSnapshot((snapshot) => {
@@ -21,7 +24,7 @@ function Feed() {
       <QuoraDefaultBox/>
       {
         feed.map(({ id, question }) =>(
-          <QuoraFeedbox key={id} question={question.question} userImg={auth.currentUser.photoURL} PostImg={question.url} displayname={auth.currentUser.displayName}/>
+          <QuoraFeedbox key={id} question={question.question} userImg={question.userImg} PostImg={question.PostImg} displayname={question.displayName}/>
         ))
       }
     </div>

@@ -24,8 +24,11 @@ function Navbar() {
         setOpenModal(false);
         db.collection('question').add({
             question: InputValue,
-            url: inputUrl,
-            timeStamp:firebase.firestore.FieldValue.serverTimestamp()
+            PostImg: inputUrl,
+            timeStamp:firebase.firestore.FieldValue.serverTimestamp(),
+            userId: user.uid,
+            displayName: user.displayName,
+            userImg:user.photo
         })
         setInputValue('');
         setInputUrl('');
@@ -60,7 +63,7 @@ function Navbar() {
         </div>
         <div className='nav-remaining'>
             <div className='profile-avatar'>
-                <Avatar style={styleForAvatar} src={auth.currentUser.photoURL}/>
+                <Avatar style={styleForAvatar} src={user.photo}/>
             </div>
             <div className='nav-language'>
             <Language sx={{fontSize:32}}/>
@@ -100,11 +103,11 @@ function Navbar() {
           <div className="modal__info">
             <Avatar
               className="avatar"
-              src={auth.currentUser.photoURL}
+              src={user.photo}
             />
             {/* <p>{user.disPlayName ? user.disPlayName : user.email} asked</p> */}
             <div className="modal__scope">
-              <p>{auth.currentUser.displayName}</p>
+              <p>{user.displayName}</p>
             </div>
           </div>
           <div className="modal__Field">
