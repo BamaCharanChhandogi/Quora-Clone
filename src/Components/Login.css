@@ -5,7 +5,7 @@
   }
   body {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     /* background: linear-gradient(
       to right,
       #6a82fb,
@@ -17,7 +17,7 @@
   }
   .login-box {
     width: 400px;
-    height: 420px;
+    height: auto;
     padding: 20px;
     border: 1px solid red;
     border-radius: 10px;
@@ -78,10 +78,10 @@
     letter-spacing: 2px;
   }
   .login-box button{
-    width: 90px;
-    padding: 6px;
-    /* height: 60px; */
-    margin-left: 10px;
+    width: 150px;
+    padding: 7px;
+    border-radius: 5px;
+    margin: 5px;
     background-color: #fc5c7d;
     border:  none;
     cursor: pointer;

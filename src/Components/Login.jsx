@@ -66,7 +66,7 @@ function Login() {
           </div>
           <button onClick={signUp}>Sign Up</button>
           <button type='submit' onClick={login}>Login</button>
-          <button type='button' onClick={signIn}>Google</button>
+          <button type='button' onClick={signIn}>Continue With Google</button>
         </form>
       </div>
     </div>

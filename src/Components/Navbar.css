@@ -165,7 +165,7 @@
   .modal__buttons {
     display: flex;
     align-items: center;
-    margin-top: 260px;
+    margin-top: 45px;
     margin-right: -20px;
     border-top: 1px solid lightgray;
   }

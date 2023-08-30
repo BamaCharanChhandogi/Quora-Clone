@@ -90,7 +90,7 @@ function Navigtationbar() {
           style={{
             overlay: {
               width: '60%',
-              height: 'auto',
+              height: '60%',
               backgroundColor: "#c92c92",
               zIndex: "1000",
               top: "10%",
@@ -100,7 +100,7 @@ function Navigtationbar() {
                 WebkitOverflowScrolling: 'touch',
                 overflow: 'auto',
                 outline: "none",
-                margin: "-20px"
+                margin: "-15px"
             }
           }}
         >
