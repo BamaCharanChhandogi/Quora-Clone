@@ -45,3 +45,9 @@
     padding: 7px 0;
     cursor: pointer;
 }
+
+@media (max-width: 477px) {
+    .Sidebar{
+        display: none;
+    }
+}

@@ -9,3 +9,10 @@ body{
 .Quora{
     height: auto;
 }
+
+/* Mobile */
+@media (max-width: 477px) {
+    .quora-content{
+        margin-top: 10px;
+    }
+}

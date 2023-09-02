@@ -133,3 +133,10 @@
       bottom: 100%;
     }
   }
+
+  @media (max-width: 477px) {
+    .login-box{
+      margin: 70px auto;
+      width: 90%;
+    }
+  }

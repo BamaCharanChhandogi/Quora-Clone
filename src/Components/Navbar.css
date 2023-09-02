@@ -194,3 +194,26 @@
     border-radius: 33px;
     cursor: pointer;
   }
+  /*  */
+  @media (max-width: 477px) {
+    .navbar{
+      /* display: none;  */
+      gap: 0rem;
+      height: auto;
+      flex-wrap: wrap;
+    }
+    .navbar .logo {
+      margin: 0 auto;
+      width: 20%;
+    }
+    .nav-search{
+      display: none;
+    }
+    .navbar .menu{
+      display: none;
+    }
+    .nav-remaining{
+      gap: 1rem;
+      margin: 0 auto;
+    }
+  }

@@ -89,8 +89,12 @@ function Navigtationbar() {
           shouldCloseOnOverlayClick={false}
           style={{
             overlay: {
-              width: '60%',
-              height: '60%',
+              // width: '60%',
+              // height: '60%',
+              maxWidth: '60%', // Adjust as needed
+          maxHeight: '60%', // Adjust as needed
+          width: 'auto', // Adjust as needed
+          height: 'auto', // Adjust as needed
               backgroundColor: "#c92c92",
               zIndex: "1000",
               top: "10%",
@@ -100,7 +104,7 @@ function Navigtationbar() {
                 WebkitOverflowScrolling: 'touch',
                 overflow: 'auto',
                 outline: "none",
-                margin: "-15px"
+                margin: "-15px",
             }
           }}
         >

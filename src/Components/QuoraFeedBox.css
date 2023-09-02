@@ -29,7 +29,7 @@
     align-items: center;
 }
 .Question-feedbox button{
-    width: 90px;
+    width: 80px;
     font-size: 1rem;
     background-color: #e23a34;
     cursor: pointer;
@@ -40,6 +40,7 @@
 }
 .Question-feedbox h3{
     text-align: justify;
+    font-weight: 300;
 }
 .Answer-feedbox{
     display: flex;
@@ -135,4 +136,41 @@
     margin-left: 5px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+/* Mobile */
+
+@media (max-width: 477px) {
+    .Profile-FeedBox{
+        padding: 3px;
+        margin-top: 5px;
+        gap: 0.5rem;
+
+    }
+    .profile-info img{
+    width: 40px;
+}
+.Question-feedbox button{
+    width: 67px;
+    font-size: 0.8rem;
+}
+.Question-feedbox h3{
+    padding: 4px;
+    font-weight: 300;
+}
+.Answer-feedbox .image{
+    width: 50%;
+}
+.vote .MuiSvgIcon-root{
+    font-size: 1.5rem;
+}
+.vote{
+    width: 60%;
+}
+.Message .MuiSvgIcon-root{
+    font-size: 1.5rem;
+}
+.Share .MuiSvgIcon-root{
+    font-size: 1.5rem;
+}
 }
