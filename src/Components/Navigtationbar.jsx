@@ -27,7 +27,6 @@ function Navigtationbar() {
         setOpenModal(false);
         db.collection('question').add({
             question: InputValue,
-            answer:"",
             PostImg: inputUrl,
             timeStamp:firebase.firestore.FieldValue.serverTimestamp(),
             userId: user.uid,

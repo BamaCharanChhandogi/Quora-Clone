@@ -27,38 +27,70 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+    border: 1px solid gray;
+    width: 100%;
+    border-radius: 5px;
+    padding: 0 10px;
 }
 .Question-feedbox button{
-    width: 80px;
-    font-size: 1rem;
+    width: 70px;
+    font-size: 0.8rem;
     background-color: #e23a34;
+    font-weight: 700;
     cursor: pointer;
     border: none;
     color: white;
     padding: 10px;
     border-radius: 5px;
+    margin: 8px;
 }
 .Question-feedbox h3{
+    width: auto;
     text-align: justify;
     font-weight: 300;
+    cursor: pointer;
 }
-.Answer-feedbox{
+.Question-feedbox h3:hover{
+    color: #c92e29;
+}
+/* Style for the main post__answer container */
+.post__answer {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    overflow-y:scroll;
-    padding: 3px 5px;
-}
-.Answer-feedbox .image{
-    width: 80%;
-}
-.Answer-feedbox img{
-    width: 100%;
-}
-.Answer-feedbox p{
+    align-items: center;
+    /* border: 2px solid gray; */
+    height: auto;
+    max-width: 100%; /* Adjust the maximum width as needed */
+
+  }
+  
+  /* Style for individual answer paragraphs */
+  .post__answer .answer {
+    max-width: 90%;
+    height: auto;
+    overflow: auto;
+    margin-top: 10px;
+  }
+  .post__answer .answer p{
     text-align: justify;
-}
+    color: gray;
+    font-weight: 300;
+  }
+  .PostUser-Profile{
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    gap: 0.5rem;
+    margin: 10px;
+  }
+
+  .PostUser-Profile img{
+    width: 40px;
+    border-radius: 50%;
+  }
+  
 .Feed-footer{
     display: flex;
     gap: 1rem;
@@ -113,10 +145,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.3rem;
+    height: auto;
+    margin: 20px auto;
 }
 .modal-ans input{
-    width: 19rem;
+    width: 70%;
+    height: auto;
     padding: 10px;
     outline: none;
 }
@@ -153,6 +188,9 @@
 .Question-feedbox button{
     width: 67px;
     font-size: 0.8rem;
+}
+.Question-feedbox{
+    gap: 1.3rem;   
 }
 .Question-feedbox h3{
     padding: 4px;
