@@ -33,6 +33,37 @@ function QuoraFeedbox(props) {
   const questionId = useSelector(selectQuestionId);
   const questionName = useSelector(selectQuestionName);
   const user = useSelector(selectUser);
+  //Like // Dislike
+  const [Like, setLike] = useState(false);
+  const [LikeCount, setLikeCount] = useState(0);
+  const [Dislike, setDislike] = useState(false);
+  const [DislikeCount, setDislikeCount] = useState(0);
+
+  const handelLike=()=>{
+    if(!Like && LikeCount==0){
+      setLike(true);
+      setLikeCount(LikeCount+1);
+      if(DislikeCount!=0){
+        setDislikeCount(DislikeCount-1);
+      }
+    }
+    else{
+      setLike(false);
+    }
+  }
+
+  const handelDislike=()=>{
+    if(!Dislike && DislikeCount==0){
+      setDislike(true);
+      setDislikeCount(DislikeCount+1);
+      if(LikeCount!=0){
+        setLikeCount(LikeCount-1);
+      }
+    }
+    else{
+      setDislike(false);
+    }
+  }
   //fetching answer
   useEffect(() => {
     if (questionId) {
@@ -139,13 +170,14 @@ function QuoraFeedbox(props) {
 
       <div className="Feed-footer">
         <div className="vote">
-          <div className="Upvote">
+          <div className="Upvote" onClick={handelLike}>
             <ThumbUpOutlined />
-            <h5>Upvote</h5>
+            <h4>{LikeCount}</h4>
           </div>
           <div className="break">|</div>
-          <div className="Downvote">
+          <div className="Downvote" onClick={handelDislike}>
             <ThumbDownOutlined />
+            <h4>{DislikeCount}</h4>
           </div>
         </div>
         <div className="Message">
