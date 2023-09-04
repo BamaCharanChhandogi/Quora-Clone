@@ -58,8 +58,8 @@
 .post__answer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    /* align-items: center; */
     /* border: 2px solid gray; */
     height: auto;
     max-width: 100%; /* Adjust the maximum width as needed */
