@@ -8,7 +8,7 @@ function Feed() {
   const [feed, setFeed] = useState([]);
 
   useEffect(() => {
-    const unsubscribe = db.collection('question').onSnapshot((snapshot) => {
+    const unsubscribe = db.collection('question').orderBy('timeStamp','desc').onSnapshot((snapshot) => {
       const feedData = snapshot.docs.map((doc) => ({ id: doc.id,question: doc.data()}));
       setFeed(feedData);
     });
@@ -17,12 +17,16 @@ function Feed() {
       unsubscribe(); // Unsubscribe from the snapshot listener when the component unmounts
     };
   }, []);
+  // Function to format the date
+
+  
   return (
+
     <div className='Feed'>
       <QuoraDefaultBox/>
       {
         feed.map(({ id, question }) =>(
-          <QuoraFeedbox id={id} question={question.question} userImg={question.userImg} PostImg={question.PostImg} displayname={question.displayName}/>
+          <QuoraFeedbox id={id} PostTime={question.timeStamp} question={question.question} userImg={question.userImg} PostImg={question.PostImg} displayname={question.displayName}/>
         ))
       }
     </div>

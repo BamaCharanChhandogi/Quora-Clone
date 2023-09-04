@@ -15,7 +15,19 @@
 }
 .profile-info{
     display: flex;
+    align-items: center;
     gap: 1rem;
+}
+.profile-info .time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 15px;
+    /* height:40px;   */
+    /* background-color: rgb(147, 143, 143); */
+    font-weight: 300;
+    background-color: rgb(241, 241, 241);
 }
 .profile-info-text{
     display: flex;
