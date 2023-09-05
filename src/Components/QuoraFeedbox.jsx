@@ -36,30 +36,30 @@ function QuoraFeedbox(props) {
   //Like // Dislike
   const [Like, setLike] = useState(false);
   const [LikeCount, setLikeCount] = useState(0);
-  const [Dislike, setDislike] = useState(false);
-  const [DislikeCount, setDislikeCount] = useState(0);
+  // const [Dislike, setDislike] = useState(false);
+  // const [DislikeCount, setDislikeCount] = useState(0);
 
-  const handelLike=()=>{
-    if(!Like){
-      setLike(true);
-      setLikeCount(LikeCount+1);
-      if(DislikeCount!=0){
-        setDislikeCount(DislikeCount-1);
+  const handelLike = () => {
+    if(questionId){
+      if (!Like) {
+        setLike(true);
+        setLikeCount(props.postLike + 1);
+        db.collection("question")
+          .doc(questionId)
+          .update({
+            postLike: LikeCount,
+          })
+          .catch((error) => {
+            console.error("Error adding document: ", error);
+          });
+        // if(DislikeCount!=0){
+        //   setDislikeCount(DislikeCount-1);
+        // }
+      } else {
+        setLike(false);
       }
     }
-    else{
-      setLike(false);
-    }
-    // sending like count to server
-    db.collection("question")
-    .doc(questionId)
-    .update({
-      postLike: LikeCount,
-      })
-    .catch((error) => {
-        console.error("Error adding document: ", error);
-      });
-  }
+  };
 
   // const handelDislike=(e)=>{
   //   if(!Dislike && DislikeCount==0){
@@ -82,7 +82,7 @@ function QuoraFeedbox(props) {
   //       console.error("Error adding document: ", error);
   //     });
   // }
-  
+
   //fetching answer
   useEffect(() => {
     if (questionId) {
@@ -142,7 +142,7 @@ function QuoraFeedbox(props) {
       }}
     >
       <div className="profile-info">
-        <Avatar src={props.userImg}/>
+        <Avatar src={props.userImg} />
         <div className="profile-info-text">
           <h5>{props.displayname}</h5>
         </div>
@@ -163,7 +163,9 @@ function QuoraFeedbox(props) {
                   <img src={answer.userImg} alt="" />
                   <h5>{answer.displayName}</h5>
                   <p>
-                    {answer.timeStamp? new Date(answer.timeStamp?.toDate()).toLocaleString(): ""}
+                    {answer.timeStamp
+                      ? new Date(answer.timeStamp?.toDate()).toLocaleString()
+                      : ""}
                   </p>
                 </div>
                 <p>
@@ -196,12 +198,12 @@ function QuoraFeedbox(props) {
           <div className="break">|</div>
           <div className="Downvote">
             <ThumbDownOutlined />
-            <h4>{DislikeCount}</h4>
+            {/* <h4>{props.postDisLike}</h4> */}
           </div>
         </div>
-        <div className="Message">
+        {/* <div className="Message">
           <ChatOutlined />
-        </div>
+        </div> */}
         <div className="Share">
           <ShareOutlined />
         </div>
