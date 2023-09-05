@@ -26,7 +26,7 @@ function Feed() {
       <QuoraDefaultBox/>
       {
         feed.map(({ id, question }) =>(
-          <QuoraFeedbox id={id} PostTime={question.timeStamp} question={question.question} userImg={question.userImg} PostImg={question.PostImg} displayname={question.displayName}/>
+          <QuoraFeedbox id={id} PostTime={question.timeStamp} postDisLike={question.postDisLike} postLike={question.postLike} question={question.question} userImg={question.userImg} PostImg={question.PostImg} displayname={question.displayName}/>
         ))
       }
     </div>

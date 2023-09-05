@@ -40,7 +40,7 @@ function QuoraFeedbox(props) {
   const [DislikeCount, setDislikeCount] = useState(0);
 
   const handelLike=()=>{
-    if(!Like && LikeCount==0){
+    if(!Like){
       setLike(true);
       setLikeCount(LikeCount+1);
       if(DislikeCount!=0){
@@ -50,20 +50,39 @@ function QuoraFeedbox(props) {
     else{
       setLike(false);
     }
+    // sending like count to server
+    db.collection("question")
+    .doc(questionId)
+    .update({
+      postLike: LikeCount,
+      })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
   }
 
-  const handelDislike=()=>{
-    if(!Dislike && DislikeCount==0){
-      setDislike(true);
-      setDislikeCount(DislikeCount+1);
-      if(LikeCount!=0){
-        setLikeCount(LikeCount-1);
-      }
-    }
-    else{
-      setDislike(false);
-    }
-  }
+  // const handelDislike=(e)=>{
+  //   if(!Dislike && DislikeCount==0){
+  //     setDislike(true);
+  //     setDislikeCount(DislikeCount+1);
+  //     if(LikeCount!=0){
+  //       setLikeCount(LikeCount-1);
+  //     }
+  //   }
+  //   else{
+  //     setDislike(false);
+  //   }
+  //   // sending like count to server
+  //   db.collection("question")
+  //   .doc(questionId)
+  //   .update({
+  //     postDisLike: DislikeCount,
+  //     })
+  //   .catch((error) => {
+  //       console.error("Error adding document: ", error);
+  //     });
+  // }
+  
   //fetching answer
   useEffect(() => {
     if (questionId) {
@@ -123,7 +142,7 @@ function QuoraFeedbox(props) {
       }}
     >
       <div className="profile-info">
-        <img src={props.userImg} alt="" />
+        <Avatar src={props.userImg}/>
         <div className="profile-info-text">
           <h5>{props.displayname}</h5>
         </div>
@@ -172,10 +191,10 @@ function QuoraFeedbox(props) {
         <div className="vote">
           <div className="Upvote" onClick={handelLike}>
             <ThumbUpOutlined />
-            <h4>{LikeCount}</h4>
+            <h4>{props.postLike}</h4>
           </div>
           <div className="break">|</div>
-          <div className="Downvote" onClick={handelDislike}>
+          <div className="Downvote">
             <ThumbDownOutlined />
             <h4>{DislikeCount}</h4>
           </div>

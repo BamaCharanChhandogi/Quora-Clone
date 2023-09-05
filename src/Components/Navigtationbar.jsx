@@ -28,7 +28,9 @@ function Navigtationbar() {
         db.collection('question').add({
             question: InputValue,
             PostImg: inputUrl,
-            timeStamp:firebase.firestore.FieldValue.Timestamp.now(),
+            postLike:0,
+            postDisLike:0,
+            timeStamp:firebase.firestore.Timestamp.now(),
             userId: user.uid,
             displayName: user.displayName,
             userImg:user.photo

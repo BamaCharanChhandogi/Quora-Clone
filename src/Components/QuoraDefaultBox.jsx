@@ -11,18 +11,23 @@ function QuoraDefaultBox() {
   const user = useSelector(selectUser);
 
   const handleQuestion = () => {
-    db.collection("question").add({
-      question: Question,
-      timeStamp: firebase.firestore.Timestamp.now(),
-      userId: user.uid,
-      displayName: user.displayName,
-      userImg: user.photo,
-    });
-    setquestion("");
+    if(Question !=''){
+      db.collection("question").add({
+        question: Question,
+        timeStamp: firebase.firestore.Timestamp.now(),
+        userId: user.uid,
+        displayName: user.displayName,
+        userImg: user.photo,
+      });
+      setquestion("");
+    }
+    else{
+      alert("Please enter a question");
+    }
   };
   return (
     <div className="Quora-Box">
-      <img src={auth.currentUser.photoURL} alt="" />
+      <Avatar src={auth.currentUser.photoURL}/>
       <div className="QuoraBox-Info">
         <input
           type="text"
@@ -39,7 +44,7 @@ function QuoraDefaultBox() {
             </button>
           </div>
           <div className="fun-btn">
-            <button>Answer</button>
+            <button type="button" onClick={handleQuestion}>Answer</button>
           </div>
           <div className="fun-btn">
             <button type="button" onClick={handleQuestion}>
