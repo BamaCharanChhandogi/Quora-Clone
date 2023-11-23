@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Home,Notifications,Groups,QuestionAnswer, Search, Language, HomeOutlined, QuestionAnswerOutlined, Groups2Outlined, GroupsOutlined, NotificationsOutlined} from '@mui/icons-material';
+import {Search, Language, HomeOutlined, QuestionAnswerOutlined, Groups2Outlined, GroupsOutlined, NotificationsOutlined} from '@mui/icons-material';
 import './Navbar.css'
 import { Avatar, Button } from '@mui/material';
 import { logout, selectUser } from '../features/counter/userSlice';

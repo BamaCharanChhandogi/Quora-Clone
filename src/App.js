@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import './App.css';
 import Quora from './Components/Quora'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/counter/userSlice';
@@ -15,7 +14,7 @@ function App() {
           uid:authUser.uid,
           displayName:authUser.displayName,
           photo:authUser.photoURL,
-          email:authUser
+          email:authUser.email
         }));
       }
       else{
@@ -24,10 +23,8 @@ function App() {
     })
   },[dispatch]);
   return (
-    <div className="App">
-      {
-        user ? <Quora/> : <Login/>
-      }
+    <div className="min-h-screen bg-gray-100"> {/* Use Tailwind CSS classes */}
+      {user ? <Quora /> : <Login />}
     </div>
   );
 }

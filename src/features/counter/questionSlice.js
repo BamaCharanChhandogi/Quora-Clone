@@ -1,5 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-// import { fetchCount } from './counterAPI';
+import { createSlice } from '@reduxjs/toolkit';
 
 export const questionSlice = createSlice({
   name: 'question',
@@ -13,7 +12,6 @@ export const questionSlice = createSlice({
         state.questionId = action.payload.questionId;
         state.questionName = action.payload.questionName;
     }
-
   },
 });
 
